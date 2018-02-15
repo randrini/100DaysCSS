@@ -1,0 +1,87 @@
+$shape-height: 9rem;
+
+* {
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.25%;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 40rem;
+  width: 40rem;
+  color: #fff;
+  background-image: linear-gradient(45deg, #0061A1, #4AB4FB);
+  box-shadow:  0.2rem 0.2rem 1.3rem 0 rgba(0, 0, 0, 0.3);
+
+  &__number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: $shape-height;
+    position: relative;
+    
+    
+  }
+
+  &__one-1 {
+    position: absolute;
+    height: 3.5rem;
+    width: 2rem;
+    background: #fff;
+    top: 1px;
+    left: -14px;
+    transform: rotate(50deg);
+  }
+
+  &__one-2 {
+    z-index: 4;
+    background: #fff;
+    height: $shape-height;
+    width: 2rem;
+    box-shadow: 0 0 1.2rem 0 rgba(0, 0, 0, 0.3);
+  }
+
+  &__zero-1, &__zero-2 {
+    z-index: 3;
+    height: $shape-height;
+    width: $shape-height;
+    border-radius: 50%;
+    border: 1.9rem solid #fff;
+    box-shadow: 0 0 1.2rem 0 rgba(0, 0, 0, 0.3);
+    margin-left: -0.3rem;
+  }
+
+  &__zero-2 {
+    z-index: 2;
+  }
+
+  &__days, &__challenge {
+    text-transform: uppercase;
+    font-size: 8.5rem;
+    font-weight: 700;
+    line-height: 1;
+    
+  }
+
+  &__challenge {
+    font-weight: 400;
+    font-size: 2.6rem;
+    line-height: 1.1;
+  }
+}
