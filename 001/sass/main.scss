@@ -7,7 +7,7 @@ $shape-height: 9rem;
 }
 
 html {
-  font-size: 62.25%;
+  font-size: 62.25%;  // Normalizing  to 10px default 10/16
 }
 
 body {
@@ -27,16 +27,12 @@ body {
   width: 40rem;
   color: #fff;
   background-image: linear-gradient(45deg, #0061A1, #4AB4FB);
-  box-shadow:  0.2rem 0.2rem 1.3rem 0 rgba(0, 0, 0, 0.3);
+  box-shadow:  0.2rem 0.2rem 1.3rem 0 rgba(0, 0, 0, 0.5);
 
   &__number {
     display: flex;
-    justify-content: center;
-    align-items: center;
     height: $shape-height;
     position: relative;
-    
-    
   }
 
   &__one-1 {
@@ -57,7 +53,8 @@ body {
     box-shadow: 0 0 1.2rem 0 rgba(0, 0, 0, 0.3);
   }
 
-  &__zero-1, &__zero-2 {
+  &__zero-1, 
+  &__zero-2 {
     z-index: 3;
     height: $shape-height;
     width: $shape-height;
@@ -76,7 +73,6 @@ body {
     font-size: 8.5rem;
     font-weight: 700;
     line-height: 1;
-    
   }
 
   &__challenge {
