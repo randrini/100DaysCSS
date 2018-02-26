@@ -2,9 +2,9 @@
   "name": "100dayscss",
   "version": "1.0.0",
   "description": "100 Days CSS Challenge 002",
-  "main": "index.js",
+  "main": "script.js",
   "scripts": {
-    "watch:sass": "node-sass sass/main.scss css/style.css -w"
+    "sass-server": "node-sass sass/main.scss css/style.css -w"
   },
   "repository": {
     "type": "git",
@@ -13,6 +13,7 @@
   "author": "Richard ANDRINIRINA",
   "license": "MIT",
   "devDependencies": {
+    "jquery": "^3.3.1",
     "node-sass": "^4.7.2"
   },
   "dependencies": {}
