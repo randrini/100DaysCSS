@@ -1,0 +1,92 @@
+$bezier: cubic-bezier(.21, .98, .6, .99);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 62.5%;
+}
+
+.box {
+  height: 400px;
+  width: 400px;
+  background-image: linear-gradient(45deg, rgb(43, 63, 100),  rgb(60, 165, 226));
+  position: relative;
+  
+  & div {
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    // transform: translate(-50%, -50%);
+    border-radius: 50%;
+    box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.2)
+  }
+
+  & .dot-1 {
+    height: 30px;
+    width: 30px;
+    animation-fill-mode: both;
+    animation: 2s $bezier animate-1 infinite alternate;
+    z-index: 3;
+  }
+
+  & .dot-2 {
+    height: 60px;
+    width: 60px;
+    animation-fill-mode: both;
+    animation: 2s $bezier animate-2 infinite alternate;
+    z-index: 2;
+  }
+  
+  & .dot-3 {
+    height: 90px;
+    width: 90px;
+    animation: 2s $bezier animate-3 infinite alternate;
+    z-index: 1;
+  }
+}
+
+@keyframes animate-1 {
+  0%, 70% {
+    box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.2);
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  100% {
+    box-shadow: 10px 10px 15px 0 rbga(0, 0, 0, 0.3);
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes animate-2 {
+  0%, 40% {
+    box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.2);
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  100% {
+    box-shadow: 10px 10px 15px 0 rbga(0, 0, 0, 0.3);
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes animate-3 {
+  0%, 10% {
+    box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.2);
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  100% {
+    box-shadow: 10px 10px 15px 0 rbga(0, 0, 0, 0.3);
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
