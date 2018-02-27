@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+$bezier: cubic-bezier(.21, .98, .6, .99);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*, *::before, *::after {    
+  box-sizing: inherit;  
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Lato', sans-serif;
+  font-size: 62.5%;
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  height: 400px;
+  width: 400px;
+  background-image: linear-gradient(45deg, rgb(43, 63, 100),  rgb(60, 165, 226));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & .container {
+    height: 300px;
+    width: 320px;
+    background-color: #fff;
+    display: flex;
+    
+  }
+}
+
+.info {
+  flex: 2 0 60%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+.profile {
+  flex: 1 0 66.67%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  
+  &__photo {
+    position: relative;
+    z-index: 3;
+
+    &--border-1, 
+    &--border-2 {
+      
+      position: absolute;
+      height: 110px;
+      width: 110px;
+      
+      top: 48%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      border-radius: 50%;
+      border-width: 1px;
+      border-style: solid;
+      border-color: rgb(37, 184, 184) rgb(37, 184, 184) rgb(37, 184, 184) transparent;
+      transition: all 1.5s ease-in-out;
+
+    }
+
+    &--border-2 {
+      height: 120px;
+      width: 120px;
+      border-color:rgb(37, 184, 184) transparent rgb(37, 184, 184) rgb(37, 184, 184);
+    }
+    
+    
+    &--border-2:hover {
+      /* Something wrong going on here */
+      width: 120px;
+      height: 120px;
+      transform-origin: 0 0;
+      transform: rotateZ(360deg);
+    }
+    & img {
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      z-index: 3;
+    }
+  }
+
+  &__name {
+    font-size: 1.8em;
+  }
+
+  &__title {
+    font-size: 1.4em;
+    margin-top: -.3em;
+    font-weight: 300;
+  }
+}
+
+.social {
+  flex: 1 0 33.33%;
+  display: flex;
+  flex-flow: column wrap;
+  font-size: .7rem;
+
+  &__follow, 
+  &__message {
+    text-decoration: none;
+	  text-align: center;
+	  cursor: pointer;
+    user-select: none;
+    color: #000;
+    border: 1px solid rgba(0, 0, 0, .4);
+    border-radius: 1.5rem;
+    width: 60%;
+    height: 27%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 1rem auto;
+    transition: .3s ease-in-out;
+
+    &:hover {
+      background: rgb(37, 184, 184);
+    }
+  
+  }
+}
+
+.stats {
+  flex: 1 0 40%;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: stretch;
+  background-color: rgb(121, 248, 248);
+  
+
+  & > * {
+    flex: 0 0 33%;
+    transition: all .4s ease-in-out;
+
+    &:hover {
+      background: rgb(37, 184, 184);
+    }
+  }
+
+  & > *:not(:last-child) {
+    border-bottom: 0.5px solid #fff;
+  }
+  
+  &__posts {
+   
+    &--wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100%;
+    }
+  }
+
+  & .value {
+    font-size: 2.5em;
+  }
+
+  & .unit {
+    font-size: 1.3em;
+    margin-top: -.6rem;
+  }
+}
