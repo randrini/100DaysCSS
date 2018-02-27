@@ -2,13 +2,12 @@
 
 $bezier: cubic-bezier(.21, .98, .6, .99);
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-*, *::before, *::after {    
-  box-sizing: inherit;  
 }
 
 body {
@@ -35,7 +34,6 @@ body {
     width: 320px;
     background-color: #fff;
     display: flex;
-    
   }
 }
 
@@ -56,25 +54,22 @@ body {
   
   &__photo {
     position: relative;
-    z-index: 3;
+    margin-top: 3rem;
 
     &--border-1, 
     &--border-2 {
-      
       position: absolute;
       height: 110px;
       width: 110px;
-      
-      top: 48%;
+      top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
-      cursor: pointer;
+      transform: translate(-50%, -50%)  rotate(0);
       border-radius: 50%;
       border-width: 1px;
       border-style: solid;
       border-color: rgb(37, 184, 184) rgb(37, 184, 184) rgb(37, 184, 184) transparent;
       transition: all 1.5s ease-in-out;
-
+      pointer-events: none;
     }
 
     &--border-2 {
@@ -82,25 +77,11 @@ body {
       width: 120px;
       border-color:rgb(37, 184, 184) transparent rgb(37, 184, 184) rgb(37, 184, 184);
     }
-    
-    
-    &--border-2:hover {
-      /* Something wrong going on here */
-      width: 120px;
-      height: 120px;
-      transform-origin: 0 0;
-      transform: rotateZ(360deg);
-    }
-    & img {
-      height: 100px;
-      width: 100px;
-      border-radius: 50%;
-      z-index: 3;
-    }
   }
 
   &__name {
     font-size: 1.8em;
+    margin-top: 1rem;
   }
 
   &__title {
@@ -110,11 +91,31 @@ body {
   }
 }
 
+.profile__avatar {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  display: block;
+  
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:hover ~ .profile__photo--border-1 {
+    transform-origin: 50% 50%;
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  &:hover ~ .profile__photo--border-2 {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
 .social {
   flex: 1 0 33.33%;
   display: flex;
   flex-flow: column wrap;
   font-size: .7rem;
+  margin-top: 1rem;
 
   &__follow, 
   &__message {
@@ -147,7 +148,6 @@ body {
   align-items: stretch;
   background-color: rgb(121, 248, 248);
   
-
   & > * {
     flex: 0 0 33%;
     transition: all .4s ease-in-out;
@@ -181,3 +181,4 @@ body {
     margin-top: -.6rem;
   }
 }
+

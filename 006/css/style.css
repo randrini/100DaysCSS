@@ -1,14 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Lato");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -54,43 +50,31 @@ body {
 }
 .profile__photo {
   position: relative;
-  z-index: 3;
+  margin-top: 3rem;
 }
 .profile__photo--border-1,
 .profile__photo--border-2 {
   position: absolute;
   height: 110px;
   width: 110px;
-  top: 48%;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
+  transform: translate(-50%, -50%) rotate(0);
   border-radius: 50%;
   border-width: 1px;
   border-style: solid;
   border-color: #25b8b8 #25b8b8 #25b8b8 transparent;
   transition: all 1.5s ease-in-out;
+  pointer-events: none;
 }
 .profile__photo--border-2 {
   height: 120px;
   width: 120px;
   border-color: #25b8b8 transparent #25b8b8 #25b8b8;
 }
-.profile__photo--border-2:hover {
-  /* Something wrong going on here */
-  width: 120px;
-  height: 120px;
-  transform-origin: 0 0;
-  transform: rotateZ(360deg);
-}
-.profile__photo img {
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-  z-index: 3;
-}
 .profile__name {
   font-size: 1.8em;
+  margin-top: 1rem;
 }
 .profile__title {
   font-size: 1.4em;
@@ -98,11 +82,29 @@ body {
   font-weight: 300;
 }
 
+.profile__avatar {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  display: block;
+}
+.profile__avatar:hover {
+  cursor: pointer;
+}
+.profile__avatar:hover ~ .profile__photo--border-1 {
+  transform-origin: 50% 50%;
+  transform: translate(-50%, -50%) rotate(360deg);
+}
+.profile__avatar:hover ~ .profile__photo--border-2 {
+  transform: translate(-50%, -50%) rotate(-360deg);
+}
+
 .social {
   flex: 1 0 33.33%;
   display: flex;
   flex-flow: column wrap;
   font-size: 0.7rem;
+  margin-top: 1rem;
 }
 .social__follow,
 .social__message {
